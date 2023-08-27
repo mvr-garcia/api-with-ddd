@@ -28,6 +28,8 @@ func main() {
 
 	// Set up the Gin router
 	router := gin.Default()
+	proxyList := []string{"127.0.0.1"} // Add the IP addresses of your trusted proxies
+	router.SetTrustedProxies(proxyList)
 
 	// Set up API routes
 	api.SetupRoutes(router, *assetService)
