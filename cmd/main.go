@@ -28,6 +28,8 @@ func main() {
 
 	// Set up the Gin router
 	router := gin.Default()
+	router.ForwardedByClientIP = true // Set this to true to enable trusting of proxies
+
 	proxyList := []string{"127.0.0.1"} // Add the IP addresses of your trusted proxies
 	router.SetTrustedProxies(proxyList)
 
